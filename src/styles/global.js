@@ -11,7 +11,8 @@ export default createGlobalStyle`
     font-size: 62.5%; //to rem be 10px instead of 16px;
   }
   html, body{
-    height: 100%;
+    /* height: 100%; */
+    background-color: #f7f7f7;
   }
   body {
     font-family: 'Roboto', sans-serif;

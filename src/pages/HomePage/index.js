@@ -3,7 +3,7 @@ import {api} from '../../services/api';
 import * as S from './styles';
 import { BodyContent } from './components/BodyContent';
 
-function Home() {
+function HomePage() {
   const [language,setLanguage] = useState('pt_br');
   const [countryInfo,setCountryInfo] = useState({});
   const [stepPosition,setStepPosition] = useState(0);
@@ -58,4 +58,4 @@ function Home() {
   )
 }
 
-export { Home};
+export { HomePage};

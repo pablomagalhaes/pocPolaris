@@ -6,9 +6,9 @@ export const WrapperContent = styled.div`
   flex-direction: column;
   width: 50%;
 
-  /* a{
+  &>a{
     font-size: 4rem;
-  } */
+  }
 `;
 
 export const WrapperCounterStep = styled.div`
