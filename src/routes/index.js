@@ -10,6 +10,7 @@ import {DocumentPage} from "../pages/DocumentPage";
 import { HomePage } from "../pages/HomePage";
 import { SignUpPage } from "../pages/SignUpPage";
 import { ConfirmSignUpScreen } from "../pages/ConfirmSignUpScreen";
+import { LogBookPage } from "../pages/LogBookPage";
 
 export function Routes() {
   const location = useLocation();
@@ -37,6 +38,7 @@ export function Routes() {
       <Route path="/document" element={<DocumentPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/confirmSignup" element={<ConfirmSignUpScreen />} />
+      <Route path="/logbook" element={<LogBookPage />} />
     </RoutesV6>
   </animated.div>
   )
