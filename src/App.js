@@ -5,13 +5,17 @@ import {
 
 } from "react-router-dom";
 import GlobalStyles from './styles/global';
+import {AppProvider} from './hooks/context';
+
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-      <GlobalStyles/>
+      <AppProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+        <GlobalStyles/>
+      </AppProvider>
     </>
   )
 }

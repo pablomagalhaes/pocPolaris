@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 
-const Button = ({children,cancelButton=false}) => {
+const Button = ({children,onClick,cancelButton=false}) => {
   return (
-    <S.Container onClick={()=>alert('asd')} cancelButton={cancelButton}>
+    <S.Container onClick={onClick} cancelButton={cancelButton}>
       {children}
     </S.Container>
   );

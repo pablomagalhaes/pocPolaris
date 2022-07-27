@@ -23,7 +23,7 @@ const SignUpPage = () => {
       // sending message to react-native
       window?.ReactNativeWebView?.postMessage(JSON.stringify(formContent))
     }else{
-      navigate('/confirmSignup',{
+      navigate('/confirmSignup',{ 
         state:{
           formContent
         }

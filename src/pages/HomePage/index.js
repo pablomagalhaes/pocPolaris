@@ -1,61 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import {api} from '../../services/api';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/context/auth';
 import * as S from './styles';
-import { BodyContent } from './components/BodyContent';
 
-function HomePage() {
-  const [language,setLanguage] = useState('pt_br');
-  const [countryInfo,setCountryInfo] = useState({});
-  const [stepPosition,setStepPosition] = useState(0);
+const HomePage = () => {
+  const {user} = useAuth();
 
-  useEffect(()=>{
-    console.log('called this func')
-    async function fetchData(){
-      const {data} = await api.get(`/${language}`);
-      console.log({data:data})
-      setCountryInfo(data)
-    }
-    fetchData()
-
-  },[language])
-
-  // useEffect(()=>{
-  //   window.addEventListener("message", message => {
-  //     console.log({message})
-  //     if(message?.data==='us' || message?.data==='pt_br'){
-  //       setLanguage(message.data)
-  //     }
-  //   });
-
-  // },[])
-
-  const sendDataToReactNativeApp = async () => {
-    window?.ReactNativeWebView?.postMessage(`Data from WebView`);
-  };
-  console.count('Re-render')
-  return(
+  return (
     <S.Container>
-        <S.OptionsSelect name="languages" value={language} id="lang" onChange={({target})=> setLanguage(target?.value)}>
-          <option value="us">US</option>
-          <option value="pt_br">PT-BR</option>
-        </S.OptionsSelect>
-
-       <BodyContent
-          pageQuantity={countryInfo?.steps?.length}
-          pdfLink={countryInfo?.steps?.[0]?.url_pdf}
-        />
-
-        {
-          window?.ReactNativeWebView && (
-            <div style={{marginTop:'8rem',background:'deeppink',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column'}}>
-              <h3>this div only show in webview inside RN</h3>
-              <button onClick={sendDataToReactNativeApp}>send data to RN</button>
-            </div>
-          )
-        }
-
+      <h1>home page</h1>
+      <pre>{JSON.stringify(user,null,1)}</pre>
+      <Link to='/signin'>signIn</Link>
     </S.Container>
-  )
+  );
 }
 
-export { HomePage};
+export { HomePage };
